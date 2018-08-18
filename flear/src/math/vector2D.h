@@ -12,8 +12,8 @@ namespace flear
 			// Creates 2D vector with given x and y components.
 			Vector2D( float x , float y );
 			
-			// Returns the length of vector.
-			float GetLength();
+			// Returns the magnitude of vector.
+			float GetMagnitude();
 
 			// Normalizes the vector.
 			void Normalize();
