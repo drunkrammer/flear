@@ -152,10 +152,14 @@
   <ItemGroup>
     <ClCompile Include="src\client\main.cpp" />
     <ClCompile Include="src\math\vector2D.cpp" />
+    <ClCompile Include="src\utils\sdl_manager.cpp" />
+    <ClCompile Include="src\utils\texture_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\math\vector2D.h" />
-    <ClInclude Include="src\stream\log.h" />
+    <ClInclude Include="src\utils\log.h" />
+    <ClInclude Include="src\utils\sdl_manager.h" />
+    <ClInclude Include="src\utils\texture_manager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

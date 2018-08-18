@@ -15,7 +15,7 @@ namespace flear
 			// Returns the magnitude of vector.
 			float GetMagnitude();
 
-			// Normalizes the vector.
+			// Sets vector's magnitude to 1.
 			void Normalize();
 
 			private:

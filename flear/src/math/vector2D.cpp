@@ -2,7 +2,7 @@
 #include <math.h>
 
 #include "vector2D.h"
-#include "..\stream\log.h"
+#include "..\utils\log.h"
 
 namespace flear
 {
