@@ -2,7 +2,7 @@
 #include <math.h>
 
 #include "vector2D.h"
-#include "..\utils\log.h"
+#include "..\utils\stream.h"
 
 namespace flear
 {
@@ -25,7 +25,7 @@ namespace flear
 			// This process changes vector's magnitude to 1.
 			if ( ( this->m_X == 0 ) && ( this->m_Y == 0 ) )
 			{
-				Log( "Can not normalize vector with 0 x and y components !" );
+				utils :: Stream :: Log( "Can not normalize vector with 0 x and y components !" );
 				return;
 			}
 			else

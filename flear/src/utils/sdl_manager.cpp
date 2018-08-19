@@ -2,7 +2,7 @@
 #include <SDL.h>
 
 #include "sdl_manager.h"
-#include "log.h"
+#include "stream.h"
 
 namespace flear
 {
@@ -13,14 +13,14 @@ namespace flear
 			// Loading SDL with default flag.
 			int result = SDL_Init( SDL_INIT_EVERYTHING );
 
-			if ( CheckInitResult( result ) )
+			if ( result <! 0 )
 			{
 				m_Status = true;
-				Log( "SDL loaded successfully !" );
+				Stream :: Log( "SDL loaded successfully !" );
 			}
 			else
 			{
-				Log ( SDL_GetError() );
+				Stream :: Log( SDL_GetError() );
 			}
 		}
 
@@ -29,26 +29,20 @@ namespace flear
 			// Loading SDL with custom param. flag.
 			int result = SDL_Init( flg );
 
-			if ( CheckInitResult( result ) )
+			if ( result <! 0 )
 			{
 				m_Status = true;
-				Log( "SDL loaded successfully with custom flag !" );
+				Stream :: Log( "SDL loaded successfully with custom flag !" );
 			}
 			else
 			{
-				Log( SDL_GetError() );
+				Stream :: Log( SDL_GetError() );
 			}
 		}
 
 		bool SDLManager :: GetSDLStatus()
 		{
 			return ( m_Status );
-		}
-
-		bool SDLManager :: CheckInitResult( int initResult )
-		{
-			if ( initResult < 0 ) return ( false );
-			else                  return ( true );
 		}
 	}
 }

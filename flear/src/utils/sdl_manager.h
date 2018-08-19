@@ -22,10 +22,6 @@ namespace flear
 
 			// Current status of SDL library , false as default.
 			bool m_Status = false;
-
-			// Checks the result of "SDL_INIT()" function.
-			bool CheckInitResult( int initResult );
-
 		};
 	}
 }
