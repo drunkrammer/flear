@@ -10,19 +10,19 @@ namespace flear
 		Display ::  Display( const std :: string &title , int width , int height , SDL_Renderer *rnd , bool isFullScreen )
 		{
 			// Before creating a new window we should check if it is alreayd created.
-			if ( wnd == NULL )
+			if ( m_Win == NULL )
 			{
 				// Window isn't created before.
 				int flg = SDL_WINDOW_SHOWN;
 				if ( isFullScreen ) flg = SDL_WINDOW_FULLSCREEN;
 
-				wnd = SDL_CreateWindow( title.c_str() , SDL_WINDOWPOS_CENTERED , SDL_WINDOWPOS_CENTERED , width , height , flg );
+				m_Win = SDL_CreateWindow( title.c_str() , SDL_WINDOWPOS_CENTERED , SDL_WINDOWPOS_CENTERED , width , height , flg );
 
 				// Check if window created successfully.
-				if ( wnd != NULL )
+				if ( m_Win != NULL )
 				{
 					// Window created.
-					rnd = SDL_CreateRenderer( wnd , -1 , 0 );
+					rnd = SDL_CreateRenderer( m_Win , -1 , 0 );
 					if ( rnd != NULL ) flear :: utils :: Stream :: Log( "SDL window successfully created with renderer !" );
 					else               flear :: utils :: Stream :: Log( "Failed to create renderer for window !" );
 				}
@@ -39,9 +39,14 @@ namespace flear
 			}
 		}
 
+		SDL_Window *Display :: GetWindow()
+		{
+			return ( m_Win );
+		}
+
 		Display :: ~Display()
 		{
-			SDL_DestroyWindow( wnd );
+			SDL_DestroyWindow( m_Win );
 		}
 	}
 }

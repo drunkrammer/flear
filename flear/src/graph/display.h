@@ -17,8 +17,13 @@ namespace flear
 			// Destroys the window.
 			~Display();
 
+			// Returns the current window.
+			SDL_Window *GetWindow();
+
+			private:
+			
 			// Current window.
-			SDL_Window *wnd = NULL;
+			SDL_Window *m_Win = NULL;
 		};
 	}
 }

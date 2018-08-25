@@ -1,19 +1,32 @@
 
 #include <iostream>
+#include <string>
 
 #include <SDL.h>
 
-#include "..\utils\sdl_manager.h"
-#include "..\math\vector2D.h"
-#include "..\graph\display.h"
+#include "..\game_shared\game_object.h"
+
+using namespace flear :: game_shared;
 
 int main( int argc , char *argv[] )
 {
-	flear :: utils :: SDLManager sdlMan;
-	sdlMan.LoadSDL();
+	// Create our game object.
+	GameObject player;
 
-	SDL_Renderer *rnd = NULL;
-	flear :: graph :: Display wnd( "Flear Test Window" , 800 , 600 , rnd , false );
+	player.SetName( "agneng" );
+	player.SetTag( "Player" );
+
+	std :: string name = player.GetName();
+	std :: string tag  = player.GetTag();
+
+	player.Awake();
+	player.Start();
+	player.Event();
+	player.Update();
+	player.Render();
+
+	std :: cout << name << std :: endl;
+	std :: cout << tag << std :: endl;
 
 	std :: cin.get();
 
