@@ -6,6 +6,7 @@
 #include "..\graph\display.h"
 #include "..\game_shared\game_object.h"
 #include "..\game_shared\scene.h"
+#include "..\temp\player.h"
 
 using namespace flear :: game_shared;
 using namespace flear :: graph;
@@ -18,19 +19,18 @@ int main( int argc , char *argv[] )
 	Display gameWindow( "Flear" , 800 , 600 , rnd , false );
 
 	// Create our scene.
-	Scene gameScene;
+	Scene test;
 
 	// Create player.
-	GameObject *player = new GameObject();
+	Player *ply = new Player();
 
-	// Attach player to our scene.
-	gameScene.AttachGameObject( player );
+	// Attach player into scene.
+	test.AttachGameObject( ply );
 
-	// Now enable scene to run and enter the scene loop.
-	gameScene.SetSceneStatus( true );
-	gameScene.SceneLoop();
+	// Run the scene's main loop.
+	test.SceneLoop();
 
-	delete ( player );
+	delete ( ply );
 
 	return ( EXIT_SUCCESS );
 }
