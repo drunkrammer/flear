@@ -153,6 +153,7 @@
     <ClCompile Include="src\client\main.cpp" />
     <ClCompile Include="src\game_shared\entity.cpp" />
     <ClCompile Include="src\game_shared\game_object.cpp" />
+    <ClCompile Include="src\game_shared\scene.cpp" />
     <ClCompile Include="src\graph\display.cpp" />
     <ClCompile Include="src\math\vector2D.cpp" />
     <ClCompile Include="src\utils\sdl_manager.cpp" />
@@ -162,6 +163,7 @@
   <ItemGroup>
     <ClInclude Include="src\game_shared\entity.h" />
     <ClInclude Include="src\game_shared\game_object.h" />
+    <ClInclude Include="src\game_shared\scene.h" />
     <ClInclude Include="src\graph\display.h" />
     <ClInclude Include="src\math\vector2D.h" />
     <ClInclude Include="src\utils\sdl_manager.h" />

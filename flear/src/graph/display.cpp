@@ -29,6 +29,8 @@ namespace flear
 				else
 				{
 					// Failed to create window.
+					flear :: utils :: Stream :: Log( SDL_GetError() );
+					SDL_Quit();
 				}
 			}
 			else

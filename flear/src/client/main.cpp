@@ -1,34 +1,36 @@
 
 #include <iostream>
-#include <string>
 
 #include <SDL.h>
 
+#include "..\graph\display.h"
 #include "..\game_shared\game_object.h"
+#include "..\game_shared\scene.h"
 
 using namespace flear :: game_shared;
+using namespace flear :: graph;
+
+SDL_Renderer *rnd = NULL;
 
 int main( int argc , char *argv[] )
 {
-	// Create our game object.
-	GameObject player;
+	// Create our window.
+	Display gameWindow( "Flear" , 800 , 600 , rnd , false );
 
-	player.SetName( "agneng" );
-	player.SetTag( "Player" );
+	// Create our scene.
+	Scene gameScene;
 
-	std :: string name = player.GetName();
-	std :: string tag  = player.GetTag();
+	// Create player.
+	GameObject *player = new GameObject();
 
-	player.Awake();
-	player.Start();
-	player.Event();
-	player.Update();
-	player.Render();
+	// Attach player to our scene.
+	gameScene.AttachGameObject( player );
 
-	std :: cout << name << std :: endl;
-	std :: cout << tag << std :: endl;
+	// Now enable scene to run and enter the scene loop.
+	gameScene.SetSceneStatus( true );
+	gameScene.SceneLoop();
 
-	std :: cin.get();
+	delete ( player );
 
 	return ( EXIT_SUCCESS );
 }
